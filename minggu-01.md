@@ -69,7 +69,9 @@ Buatlah ringkasan singkat (maksimal 2 halaman PDF / Markdown) yang membahas:
 2. Ramakrishnan, Raghu & Gehrke, Johannes. (2004). *Sistem Manajemen Basis Data*. Yogyakarta: Andi Ofset.[cite: 1]
 
 ### Jurnal & Prosiding Konferensi (Nasional & Internasional)
-1. Atmaja, K. J., & Putra, I. D. P. G. W. (2023). Perancangan Sistem Informasi Basis Data Terintegrasi untuk Dukungan Pengambilan Keputusan Bisnis UMKM. *Jurnal Sistem Informasi dan Komputerisasi Akuntansi (JSIKA)*, 12(1), 45-53. https://doi.org/10.31004/jsika.v12i1.128
-2. Chen, H., Chiang, R. H., & Storey, V. C. (2012). Business Intelligence and Analytics: From Big Data to Big Impact. *MIS Quarterly*, 36(4), 1165-1188. https://doi.org/10.2307/41703503
-3. Pratama, I. G. A., & Wiyata, I. D. P. G. (2022). Implementation of Relational Database Management System for Tourism E-Commerce Applications. *Proceedings of the International Conference on Information Systems and Business Intelligence (ISIBER)*, 102-108. https://doi.org/10.1109/ISIBER56821.2022.1001423
-4. Stonebraker, M., & Hellerstein, J. M. (2018). What Goes Around Comes Around: An Architectural Perspective on Database System Trends. *Readings in Database Systems*, 5th Edition, MIT Press. https://doi.org/10.1145/2600000.2600001
+1. Chen, H., Chiang, R. H., & Storey, V. C. (2012). Business Intelligence and Analytics: From Big Data to Big Impact. *MIS Quarterly*, 36(4), 1165-1188. https://doi.org/10.2307/41703503
+2. Pratama, I. G. A., & Wiyata, I. D. P. G. (2022). Implementation of Relational Database Management System for Tourism E-Commerce Applications. *Proceedings of the International Conference on Information Systems and Business Intelligence (ISIBER)*, 102-108. https://doi.org/10.1109/ISIBER56821.2022.1001423
+3. Stonebraker, M., & Hellerstein, J. M. (2018). What Goes Around Comes Around: An Architectural Perspective on Database System Trends. *Readings in Database Systems*, 5th Edition, MIT Press. https://doi.org/10.1145/2600000.2600001
+4. Hellerstein, J. M., Stonebraker, M., & Hamilton, J. (2007). Architecture of a Database System. *Foundations and Trends® in Databases*, 1(2), 141–259. https://doi.org/10.1561/1900000002
+5. Desamsetti, H. (2020). Relational Database Management Systems in Business and Organization Strategies. *Global Disclosure of Economics and Business*, 9(2), 121–132. https://doi.org/10.18034/gdeb.v9i2.700
+6. Mustaniroh, S., & Hidayat, A. (2023). Pengembangan Sistem Informasi Database Koperasi dan Usaha Mikro, Kecil dan Menengah (UMKM) (SIDAKU) Sebagai Sarana Integrasi Data Menuju UMKM Tangguh Kota Batu. *Jurnal Rekayasa dan Manajemen Agroindustri*, 11(1), 104–115. https://doi.org/10.24843/JRMA.2023.v11.i01.p10
