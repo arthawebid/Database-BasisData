@@ -177,7 +177,8 @@ Mahasiswa diwajibkan mengimplementasikan kueri DML untuk memasukkan data awal, m
 | No | Indikator Penilaian | Kriteria | Bobot (%) |
 | --- | --- | --- | --- |
 | 1 | Kerumitan Kasus | Kompleksitas kasus bisnis nyata yang diangkat | 10% |
-| 2 | Ketepatan Penggunaan DML | Kebenaran sintaks `INSERT`, `UPDATE`, `DELETE`, dan `SELECT`<br> | 50% |
+| 2 | Analisis & Penjelasan Bisnis | Ketepatan interpretasi laporan data bagi pengambilan keputusan bisnis | 40% |
+| 3 | Ketepatan Penggunaan DML | Kebenaran sintaks `INSERT`, `UPDATE`, `DELETE`, dan `SELECT`<br> | 50% |
 | **Total** |  |  | **100%** |
 
 ---
