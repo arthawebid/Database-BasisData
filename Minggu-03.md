@@ -74,7 +74,7 @@ Memetakan hasil CDM Pertemuan 2 menjadi skema PDM di MySQL:
 ## 📝 EVALUASI PEMBELAJARAN (MINGGU 1, 2, DAN 3)
 
 ---
-
+<!--
 ### BUKTI EVALUASI I: TES TEORI (15 MENIT)
 
 #### A. Soal Pilihan Ganda
@@ -101,7 +101,7 @@ Memetakan hasil CDM Pertemuan 2 menjadi skema PDM di MySQL:
 2. Gambarkan alur transformasi dari entitas `KATEGORI` (1) ke entitas `PRODUK` (N) saat diturunkan dari CDM menjadi tabel PDM lengkap dengan posisi *Primary Key* dan *Foreign Key*!
 
 ---
-
+-->
 ### BUKTI EVALUASI II: LEMBAR TUGAS MANDIRI (RTM-1)
 
 #### Deskripsi Tugas
