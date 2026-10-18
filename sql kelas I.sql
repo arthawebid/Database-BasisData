@@ -4,7 +4,7 @@ fungsinya
 */
 
 /*
-DDL (Data Define Language): 
+DDL (Data Definition Language): 
 untuk membuat (mendefinisikan), mengubah definisi (struktur), 
 menghapus definisi (struktur)  
 */
