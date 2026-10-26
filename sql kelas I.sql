@@ -42,5 +42,10 @@ insert  into `stokbarang`(`kodebarang`,`namabarang`,`stok`,`hargabeli`,`hargajua
 ('B001','Kemeja Flanel',56,73000,85000,'Kemeja flanel bahan katun'),
 ('B002','Celena Jeans',43,112500,120000,'Celana Jeans demin'),
 ('B003','Sepatu Sneaker',34,154000,175000,'Sepatu Sneaker casual');
+
+insert  into `photoproduk`(`kodephoto`,`filephoto`,`iscover`,`kodebarang`) values 
+(1,'sneaker01.jpg',0,'B003'),
+(2,'sneaker02.jpg',1,'B003');
+
 -- Tabel reviewproduk
 
