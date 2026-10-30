@@ -69,6 +69,11 @@ CREATE TABLE `stokbarang` (
 
 /*Data for the table `stokbarang` */
 
+insert  into `stokbarang`(`idbarang`,`namabarang`,`hargabarang`,`stok`,`deskripsi`,`jenis`) values 
+('B0001','Sepatu Bot',125000,50,'Sepatu bot berkualitas super','sepatu'),
+('B0002','Baju Renang',25475,45,NULL,'baju'),
+('B0003','Celana Renang',20400,48,NULL,'celana');
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
