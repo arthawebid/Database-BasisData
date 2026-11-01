@@ -42,12 +42,12 @@ insert  into `stokbarang`(`kodebarang`,`namabarang`,`stok`,`hargabeli`,`hargajua
 ('B003','Sepatu Sneaker',34,154000,175000,'Sepatu Sneaker casual');
 
 insert  into `photoproduk`(`kodephoto`,`filephoto`,`iscover`,`kodebarang`) values 
-(1,'Kemeja Flano01.jpg',0,'B001'),
-(2,'sneaker02.jpg',1,'B003');
+(1,'Kemeja Flano01.jpg',1,'B001'),
+(2,'sneaker02.jpg',1,'B003'),
 (3,'sneaker01.jpg',0,'B003'),
 (4,'Celana Jeans01.jpg',1,'B002'),
-(4,'Celana Jeans02.jpg',1,'B002'),
-(4,'Celana Jeans03.jpg',1,'B002');
+(5,'Celana Jeans02.jpg',0,'B002'),
+(6,'Celana Jeans03.jpg',0,'B002');
 
 -- Tabel reviewproduk
 
