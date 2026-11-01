@@ -7,6 +7,7 @@ fungsinya
 DDL (Data Definition Language): 
 untuk membuat (mendefinisikan), mengubah definisi (struktur), 
 menghapus definisi (struktur)  
+Download: https://tinyurl.com/DB-dbase-I
 */
 CREATE DATABASE PenjualanProduk;
 DROP TABLE stokbarang;
