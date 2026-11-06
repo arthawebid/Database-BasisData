@@ -31,9 +31,19 @@ CREATE TABLE `invoicedatail` (
   KEY `fk_detail_stok` (`idbarang`),
   CONSTRAINT `fk_detail_invoice` FOREIGN KEY (`idinvoice`) REFERENCES `invoices` (`idinvoice`) ON UPDATE CASCADE,
   CONSTRAINT `fk_detail_stok` FOREIGN KEY (`idbarang`) REFERENCES `stokbarang` (`idbarang`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `invoicedatail` */
+
+insert  into `invoicedatail`(`iddetail`,`idinvoice`,`idbarang`,`qty`,`diskon`) values 
+(1,1,'B0001',1,30000),
+(2,1,'B0003',1,0),
+(3,2,'B0001',1,30000),
+(4,2,'B0003',1,0),
+(5,2,'B0002',3,0),
+(6,3,'B0001',1,0),
+(7,3,'B0002',1,0),
+(8,4,'B0002',5,0);
 
 /*Table structure for table `invoices` */
 
@@ -49,9 +59,15 @@ CREATE TABLE `invoices` (
   `kasir` varchar(25) DEFAULT NULL,
   `diskon` float DEFAULT NULL,
   PRIMARY KEY (`idinvoice`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `invoices` */
+
+insert  into `invoices`(`idinvoice`,`tgl`,`jam`,`penerima`,`alamat`,`tbayar`,`kasir`,`diskon`) values 
+(1,'2026-10-02','09:15:00','Yuandi','Denpasar Selatan',453000,'yulia',11000),
+(2,'2026-10-02','09:30:00','Yuruf','Denpasar barat',43000,'yulia',3000),
+(3,'2026-10-02','09:45:00','Rufiana','Denpasar Selatan',433000,'sandy',10000),
+(4,'2026-10-02','12:15:00','Wahyuari','Gianyar',35000,'yulia',5000);
 
 /*Table structure for table `stokbarang` */
 
