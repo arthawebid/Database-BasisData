@@ -14,3 +14,7 @@
 --    relasi datanya
 -- 8. Tampilkan Produk yang paling laris, paling jarang di beli, 
 --    rata-rata penjualan tiap produk
+-- 9. Tambahkan minimal 5 studi kasus yang sesuai dengan desain Database
+--    (soal (lengkapi dengan maksud/fungsi/tujuan dari soal tersebt) 
+--    dan jawabannya - jelaskan maksud dari tiap instruksi query 
+--    yang diberikan)
