@@ -1,0 +1,16 @@
+-- Data Manipulation Language
+-- 1. Buat tabel reviewproduk, member, kasir, penjualan dan 
+--    detailpenjualan (struktur tabel bisa menggunakan desain sendiri)
+-- 2. Tentukan juga relasi antar tabel
+
+-- Data Query Language
+-- 1. Tampilkan seluruh data dari tabel stokbarang
+-- 2. Tampilkan seluruh data dari tabel photoproduk
+-- 3. Tampilkan data dari kodebarang, namabarang, harga beli dan stok
+-- 4. Tampilkan data prediksi keuntungan tiap stokbarang yang dimiliki
+-- 5. Tampilkan data photo dari tiap stokbarang
+-- 6. Tampilkan data cover photo dari tiap stokbarang
+-- 7. Isikan tiap tabel dari DML point 1 minimal 5 data dan perhatikan
+--    relasi datanya
+-- 8. Tampilkan Produk yang paling laris, paling jarang di beli, 
+--    rata-rata penjualan tiap produk
