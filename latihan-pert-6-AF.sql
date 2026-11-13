@@ -43,6 +43,17 @@ ORDER BY
   
 -- menampilkan namaproduk, namaphoto
 
+select 
+  transjuals.`kodepenjualan`, transjualdetails.`kodeproduk`,produk.namaproduk,transjualdetails.`qty`, produk.hargajual,transjualdetails.`qty`* produk.hargajual subtotal
+from 
+  transjualdetails
+     inner join transjuals
+      on transjuals.`kodepenjualan` = transjualdetails.kodepenjualan
+     inner join produk
+      on transjualdetails.kodeproduk= produk.kodeproduk
+where 
+  kasir='ketut';
+
 
 
 
