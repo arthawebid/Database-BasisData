@@ -12,332 +12,28 @@ MySQL - 10.4.27-MariaDB : Database - penjualanproduk
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-DROP DATABASE IF EXISTS `penjualanproduk`;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`penjualanproduk` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
 USE `penjualanproduk`;
-
-/*Table structure for table `stokbarang` */
-
-DROP TABLE IF EXISTS `stokbarang`;
-
-CREATE TABLE `stokbarang` (
-  `kodebarang` VARCHAR(5) NOT NULL,
-  `namabarang` VARCHAR(50) NOT NULL,
-  `stok` FLOAT DEFAULT NULL,
-  `hargabeli` FLOAT DEFAULT NULL,
-  `hargajual` FLOAT DEFAULT NULL,
-  `deskripsi` TEXT DEFAULT NULL,
-  PRIMARY KEY (`kodebarang`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `stokbarang` */
-
-INSERT  INTO `stokbarang`(`kodebarang`,`namabarang`,`stok`,`hargabeli`,`hargajual`,`deskripsi`) VALUES 
-('B001','Kemeja Flanel',56,73000,85000,'Kemeja flanel bahan katun'),
-('B002','Celana Jeans',43,112500,120000,'Celana jeans denim'),
-('B003','Sepatu Sneaker',34,154000,175000,'Sepatu sneaker casual'),
-('B004','Kaos Polos Katun',80,52000,65000,'Kaos polos cotton combed 30s'),
-('B005','Hoodie Fleece',25,116000,145000,'Hoodie bahan fleece tebal'),
-('B006','Jaket Parasut',30,104000,130000,'Jaket parasut anti angin'),
-('B007','Celana Chino',38,88000,110000,'Celana chino slim fit'),
-('B008','Topi Baseball',60,36000,45000,'Topi baseball bahan twill'),
-('B009','Tas Ransel',22,128000,160000,'Tas ransel 30L anti air'),
-('B010','Dompet Kulit',40,76000,95000,'Dompet kulit asli manual stitch'),
-('B011','Sabuk Kulit',35,60000,75000,'Sabuk kulit asli head 3 cm'),
-('B012','Kacamata Hitam',28,100000,125000,'Sunglasses UV400 polarized'),
-('B013','Jam Tangan',15,200000,250000,'Jam tangan analog leather strap'),
-('B014','Kaos Kaki Pack',100,20000,25000,'Kaos kaki pack isi 3'),
-('B015','Sarung Tangan',45,44000,55000,'Sarung tangan riding'),
-('B016','Syal Rajut',33,48000,60000,'Syal rajut wool blend'),
-('B017','Cardigan Rajut',18,124000,155000,'Cardigan rajut unisex'),
-('B018','Blazer Formal',12,232000,290000,'Blazer formal slim fit'),
-('B019','Rok Plisket',26,78400,98000,'Rok plisket satin'),
-('B020','Dress Casual',20,148000,185000,'Dress casual katun premium');
-
-/*Table structure for table `photoproduk` */
-
-DROP TABLE IF EXISTS `photoproduk`;
-
-CREATE TABLE `photoproduk` (
-  `kodephoto` INT(11) NOT NULL AUTO_INCREMENT,
-  `filephoto` VARCHAR(50) NOT NULL,
-  `iscover` TINYINT(1) DEFAULT 0,
-  `kodebarang` VARCHAR(5) DEFAULT NULL,
-  PRIMARY KEY (`kodephoto`),
-  KEY `fk_photo_barang` (`kodebarang`),
-  CONSTRAINT `fk_photo_barang` FOREIGN KEY (`kodebarang`) REFERENCES `stokbarang` (`kodebarang`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=INNODB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `photoproduk` */
-
-INSERT  INTO `photoproduk`(`kodephoto`,`filephoto`,`iscover`,`kodebarang`) VALUES 
-(1,'kemeja_flanel_01.jpg',1,'B001'),
-(2,'kemeja_flanel_02.jpg',0,'B001'),
-(3,'celana_jeans_01.jpg',1,'B002'),
-(4,'celana_jeans_02.jpg',0,'B002'),
-(5,'sneaker_01.jpg',1,'B003'),
-(6,'sneaker_02.jpg',0,'B003'),
-(7,'kaos_polos_01.jpg',1,'B004'),
-(8,'kaos_polos_02.jpg',0,'B004'),
-(9,'hoodie_01.jpg',1,'B005'),
-(10,'hoodie_02.jpg',0,'B005'),
-(11,'jaket_parasut_01.jpg',1,'B006'),
-(12,'jaket_parasut_02.jpg',0,'B006'),
-(13,'celana_chino_01.jpg',1,'B007'),
-(14,'celana_chino_02.jpg',0,'B007'),
-(15,'topi_baseball_01.jpg',1,'B008'),
-(16,'topi_baseball_02.jpg',0,'B008'),
-(17,'tas_ransel_01.jpg',1,'B009'),
-(18,'tas_ransel_02.jpg',0,'B009'),
-(19,'dompet_kulit_01.jpg',1,'B010'),
-(20,'dompet_kulit_02.jpg',0,'B010'),
-(21,'sabuk_kulit_01.jpg',1,'B011'),
-(22,'sabuk_kulit_02.jpg',0,'B011'),
-(23,'kacamata_hitam_01.jpg',1,'B012'),
-(24,'kacamata_hitam_02.jpg',0,'B012'),
-(25,'jam_tangan_01.jpg',1,'B013'),
-(26,'jam_tangan_02.jpg',0,'B013'),
-(27,'kaos_kaki_01.jpg',1,'B014'),
-(28,'kaos_kaki_02.jpg',0,'B014'),
-(29,'sarung_tangan_01.jpg',1,'B015'),
-(30,'sarung_tangan_02.jpg',0,'B015'),
-(31,'syal_rajut_01.jpg',1,'B016'),
-(32,'syal_rajut_02.jpg',0,'B016'),
-(33,'cardigan_01.jpg',1,'B017'),
-(34,'cardigan_02.jpg',0,'B017'),
-(35,'blazer_01.jpg',1,'B018'),
-(36,'blazer_02.jpg',0,'B018'),
-(37,'rok_plisket_01.jpg',1,'B019'),
-(38,'rok_plisket_02.jpg',0,'B019'),
-(39,'dress_casual_01.jpg',1,'B020'),
-(40,'dress_casual_02.jpg',0,'B020');
-
-/*Table structure for table `kasir` */
-
-DROP TABLE IF EXISTS `kasir`;
-
-CREATE TABLE `kasir` (
-  `idkasir` INT(11) NOT NULL AUTO_INCREMENT,
-  `namakasir` VARCHAR(50) NOT NULL,
-  `telepon` VARCHAR(15) DEFAULT NULL,
-  PRIMARY KEY (`idkasir`)
-) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `kasir` */
-
-INSERT  INTO `kasir`(`idkasir`,`namakasir`,`telepon`) VALUES 
-(1,'Rina Marlina','081234567001'),
-(2,'Doni Kusuma','081234567002'),
-(3,'Ayu Pertiwi','081234567003');
-
-/*Table structure for table `member` */
-
-DROP TABLE IF EXISTS `member`;
-
-CREATE TABLE `member` (
-  `idmember` INT(11) NOT NULL AUTO_INCREMENT,
-  `nama` VARCHAR(50) NOT NULL,
-  `alamat` VARCHAR(100) DEFAULT NULL,
-  `telepon` VARCHAR(15) DEFAULT NULL,
-  `email` VARCHAR(50) DEFAULT NULL,
-  `tanggalmember` DATE DEFAULT NULL,
-  PRIMARY KEY (`idmember`)
-) ENGINE=INNODB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `member` */
-
-INSERT  INTO `member`(`idmember`,`nama`,`alamat`,`telepon`,`email`,`tanggalmember`) VALUES 
-(1,'Andi Pratama','Jl. Merdeka 12 Bandung','081200000001','andi@mail.com','2025-01-10'),
-(2,'Budi Santoso','Jl. Sudirman 5 Jakarta','081200000002','budi@mail.com','2025-01-15'),
-(3,'Citra Lestari','Jl. Diponegoro 8 Surabaya','081200000003','citra@mail.com','2025-01-20'),
-(4,'Dewi Anggraini','Jl. Ahmad Yani 3 Semarang','081200000004','dewi@mail.com','2025-02-01'),
-(5,'Eko Wibowo','Jl. Gatot Subroto 21 Medan','081200000005','eko@mail.com','2025-02-05'),
-(6,'Fitri Handayani','Jl. Pahlawan 9 Makassar','081200000006','fitri@mail.com','2025-02-10'),
-(7,'Gede Putra','Jl. Sunset Road 4 Bali','081200000007','gede@mail.com','2025-02-14'),
-(8,'Hana Safitri','Jl. Malioboro 17 Jogja','081200000008','hana@mail.com','2025-02-18'),
-(9,'Indra Kurniawan','Jl. Riau 33 Palembang','081200000009','indra@mail.com','2025-03-02'),
-(10,'Joko Susilo','Jl. Veteran 6 Malang','081200000010','joko@mail.com','2025-03-06'),
-(11,'Kurnia Sari','Jl. Merdeka 1 Padang','081200000011','kurnia@mail.com','2025-03-10'),
-(12,'Lukman Hakim','Jl. Sudirman 22 Banjarmasin','081200000012','lukman@mail.com','2025-03-15'),
-(13,'Maya Sari','Jl. Diponegoro 7 Pontianak','081200000013','maya@mail.com','2025-03-20'),
-(14,'Nanda Prasetya','Jl. Ahmad Yani 14 Samarinda','081200000014','nanda@mail.com','2025-04-01'),
-(15,'Olivia Tanuwijaya','Jl. Gatot Subroto 2 Manado','081200000015','olivia@mail.com','2025-04-05'),
-(16,'Puput Rahayu','Jl. Pahlawan 11 Jayapura','081200000016','puput@mail.com','2025-04-10'),
-(17,'Qori Amelia','Jl. Sunset Road 9 Ambon','081200000017','qori@mail.com','2025-04-14'),
-(18,'Rian Firmansyah','Jl. Malioboro 2 Banda Aceh','081200000018','rian@mail.com','2025-04-18'),
-(19,'Sinta Maharani','Jl. Riau 5 Pekanbaru','081200000019','sinta@mail.com','2025-05-02'),
-(20,'Tono Hartono','Jl. Veteran 19 Lampung','081200000020','tono@mail.com','2025-05-06'),
-(21,'Ulfa Ramadhani','Jl. Merdeka 4 Jambi','081200000021','ulfa@mail.com','2025-05-10'),
-(22,'Vino Bastian','Jl. Sudirman 30 Bengkulu','081200000022','vino@mail.com','2025-05-15'),
-(23,'Wulan Suci','Jl. Diponegoro 15 Gorontalo','081200000023','wulan@mail.com','2025-05-20'),
-(24,'Xaverius Edi','Jl. Ahmad Yani 2 Palangka Raya','081200000024','xaverius@mail.com','2025-06-01'),
-(25,'Yuni Astuti','Jl. Gatot Subroto 8 Ternate','081200000025','yuni@mail.com','2025-06-05'),
-(26,'Zaki Maulana','Jl. Pahlawan 23 Sorong','081200000026','zaki@mail.com','2025-06-10'),
-(27,'Arif Setiawan','Jl. Sunset Road 1 Kupang','081200000027','arif@mail.com','2025-06-14'),
-(28,'Bayu Aji','Jl. Malioboro 6 Mataram','081200000028','bayu@mail.com','2025-06-18'),
-(29,'Candra Kirana','Jl. Riau 12 Kendari','081200000029','candra@mail.com','2025-07-02'),
-(30,'Dina Mariana','Jl. Veteran 27 Mamuju','081200000030','dina@mail.com','2025-07-06'),
-(31,'Erwin Syah','Jl. Merdeka 16 Pangkal Pinang','081200000031','erwin@mail.com','2025-07-10'),
-(32,'Fajar Nugroho','Jl. Sudirman 9 Tanjung Pinang','081200000032','fajar@mail.com','2025-07-15'),
-(33,'Gita Puspita','Jl. Diponegoro 21 Manokwari','081200000033','gita@mail.com','2025-07-20'),
-(34,'Hendra Gunawan','Jl. Ahmad Yani 4 Singkawang','081200000034','hendra@mail.com','2025-08-01'),
-(35,'Intan Permata','Jl. Gatot Subroto 18 Bau Bau','081200000035','intan@mail.com','2025-08-05'),
-(36,'Jaya Kusuma','Jl. Pahlawan 1 Sibolga','081200000036','jaya@mail.com','2025-08-10'),
-(37,'Kirana Ayu','Jl. Sunset Road 14 Pare Pare','081200000037','kirana@mail.com','2025-08-14'),
-(38,'Lestari Budhi','Jl. Malioboro 3 Metro','081200000038','lestari@mail.com','2025-08-18'),
-(39,'Malik Ibrahim','Jl. Riau 26 Prabumulih','081200000039','malik@mail.com','2025-09-02'),
-(40,'Nadia Putri','Jl. Veteran 10 Subang','081200000040','nadia@mail.com','2025-09-06'),
-(41,'Oktariansyah','Jl. Merdeka 25 Sukabumi','081200000041','okta@mail.com','2025-09-10'),
-(42,'Prima Wati','Jl. Sudirman 17 Tasikmalaya','081200000042','prima@mail.com','2025-09-15'),
-(43,'Qamal Haikal','Jl. Diponegoro 2 Cirebon','081200000043','qamal@mail.com','2025-09-20'),
-(44,'Ratna Juwita','Jl. Ahmad Yani 11 Tegal','081200000044','ratna@mail.com','2025-10-01'),
-(45,'Surya Darma','Jl. Gatot Subroto 29 Pekalongan','081200000045','surya@mail.com','2025-10-05'),
-(46,'Tari Melati','Jl. Pahlawan 6 Pemalang','081200000046','tari@mail.com','2025-10-10'),
-(47,'Umar Said','Jl. Sunset Road 20 Brebes','081200000047','umar@mail.com','2025-10-14'),
-(48,'Vina Oktaviani','Jl. Malioboro 13 Slawi','081200000048','vina@mail.com','2025-10-18'),
-(49,'Wawan Setiawan','Jl. Riau 8 Purwokerto','081200000049','wawan@mail.com','2025-11-02'),
-(50,'Yusuf Abdillah','Jl. Veteran 24 Banyumas','081200000050','yusuf@mail.com','2025-11-06');
-
-/*Table structure for table `penjualan` */
-
-DROP TABLE IF EXISTS `penjualan`;
-
-CREATE TABLE `penjualan` (
-  `kodepenjualan` CHAR(5) NOT NULL,
-  `tanggalpenjualan` DATETIME DEFAULT NULL,
-  `idmember` INT(11) DEFAULT NULL,
-  `idkasir` INT(11) DEFAULT NULL,
-  PRIMARY KEY (`kodepenjualan`),
-  KEY `fk_jual_member` (`idmember`),
-  KEY `fk_jual_kasir` (`idkasir`),
-  CONSTRAINT `fk_jual_kasir` FOREIGN KEY (`idkasir`) REFERENCES `kasir` (`idkasir`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `fk_jual_member` FOREIGN KEY (`idmember`) REFERENCES `member` (`idmember`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `penjualan` */
-
-INSERT  INTO `penjualan`(`kodepenjualan`,`tanggalpenjualan`,`idmember`,`idkasir`) VALUES 
-('P0001','2026-01-02 09:15:00',1,1),
-('P0002','2026-01-04 10:30:00',2,2),
-('P0003','2026-01-06 11:45:00',3,3),
-('P0004','2026-01-08 13:20:00',4,1),
-('P0005','2026-01-10 15:10:00',5,2),
-('P0006','2026-01-12 16:40:00',6,3),
-('P0007','2026-01-14 18:05:00',7,1),
-('P0008','2026-01-16 19:30:00',8,2),
-('P0009','2026-01-18 09:15:00',9,3),
-('P0010','2026-01-20 10:30:00',10,1),
-('P0011','2026-01-22 11:45:00',11,2),
-('P0012','2026-01-24 13:20:00',12,3),
-('P0013','2026-01-26 15:10:00',13,1),
-('P0014','2026-01-28 16:40:00',14,2),
-('P0015','2026-01-30 18:05:00',15,3),
-('P0016','2026-02-01 19:30:00',16,1),
-('P0017','2026-02-03 09:15:00',17,2),
-('P0018','2026-02-05 10:30:00',18,3),
-('P0019','2026-02-07 11:45:00',19,1),
-('P0020','2026-02-09 13:20:00',20,2),
-('P0021','2026-02-11 15:10:00',21,3),
-('P0022','2026-02-13 16:40:00',22,1),
-('P0023','2026-02-15 18:05:00',23,2),
-('P0024','2026-02-17 19:30:00',24,3),
-('P0025','2026-02-19 09:15:00',25,1),
-('P0026','2026-02-21 10:30:00',26,2),
-('P0027','2026-02-23 11:45:00',27,3),
-('P0028','2026-02-25 13:20:00',28,1),
-('P0029','2026-02-27 15:10:00',29,2),
-('P0030','2026-03-01 16:40:00',30,3),
-('P0031','2026-03-03 18:05:00',31,1),
-('P0032','2026-03-05 19:30:00',32,2),
-('P0033','2026-03-07 09:15:00',33,3),
-('P0034','2026-03-09 10:30:00',34,1),
-('P0035','2026-03-11 11:45:00',35,2),
-('P0036','2026-03-13 13:20:00',36,3),
-('P0037','2026-03-15 15:10:00',37,1),
-('P0038','2026-03-17 16:40:00',38,2),
-('P0039','2026-03-19 18:05:00',39,3),
-('P0040','2026-03-21 19:30:00',40,1),
-('P0041','2026-03-23 09:15:00',41,2),
-('P0042','2026-03-25 10:30:00',42,3),
-('P0043','2026-03-27 11:45:00',43,1),
-('P0044','2026-03-29 13:20:00',44,2),
-('P0045','2026-03-31 15:10:00',45,3),
-('P0046','2026-04-02 16:40:00',46,1),
-('P0047','2026-04-04 18:05:00',47,2),
-('P0048','2026-04-06 19:30:00',48,3),
-('P0049','2026-04-08 09:15:00',49,1),
-('P0050','2026-04-10 10:30:00',50,2),
-('P0051','2026-04-12 11:45:00',1,3),
-('P0052','2026-04-14 13:20:00',2,1),
-('P0053','2026-04-16 15:10:00',3,2),
-('P0054','2026-04-18 16:40:00',4,3),
-('P0055','2026-04-20 18:05:00',5,1),
-('P0056','2026-04-22 19:30:00',6,2),
-('P0057','2026-04-24 09:15:00',7,3),
-('P0058','2026-04-26 10:30:00',8,1),
-('P0059','2026-04-28 11:45:00',9,2),
-('P0060','2026-04-30 13:20:00',10,3),
-('P0061','2026-05-02 15:10:00',11,1),
-('P0062','2026-05-04 16:40:00',12,2),
-('P0063','2026-05-06 18:05:00',13,3),
-('P0064','2026-05-08 19:30:00',14,1),
-('P0065','2026-05-10 09:15:00',15,2),
-('P0066','2026-05-12 10:30:00',16,3),
-('P0067','2026-05-14 11:45:00',17,1),
-('P0068','2026-05-16 13:20:00',18,2),
-('P0069','2026-05-18 15:10:00',19,3),
-('P0070','2026-05-20 16:40:00',20,1),
-('P0071','2026-05-22 18:05:00',21,2),
-('P0072','2026-05-24 19:30:00',22,3),
-('P0073','2026-05-26 09:15:00',23,1),
-('P0074','2026-05-28 10:30:00',24,2),
-('P0075','2026-05-30 11:45:00',25,3),
-('P0076','2026-06-01 13:20:00',26,1),
-('P0077','2026-06-03 15:10:00',27,2),
-('P0078','2026-06-05 16:40:00',28,3),
-('P0079','2026-06-07 18:05:00',29,1),
-('P0080','2026-06-09 19:30:00',30,2),
-('P0081','2026-06-11 09:15:00',31,3),
-('P0082','2026-06-13 10:30:00',32,1),
-('P0083','2026-06-15 11:45:00',33,2),
-('P0084','2026-06-17 13:20:00',34,3),
-('P0085','2026-06-19 15:10:00',35,1),
-('P0086','2026-06-21 16:40:00',36,2),
-('P0087','2026-06-23 18:05:00',37,3),
-('P0088','2026-06-25 19:30:00',38,1),
-('P0089','2026-06-27 09:15:00',39,2),
-('P0090','2026-06-29 10:30:00',40,3),
-('P0091','2026-07-01 11:45:00',41,1),
-('P0092','2026-07-03 13:20:00',42,2),
-('P0093','2026-07-05 15:10:00',43,3),
-('P0094','2026-07-07 16:40:00',44,1),
-('P0095','2026-07-09 18:05:00',45,2),
-('P0096','2026-07-11 19:30:00',46,3),
-('P0097','2026-07-13 09:15:00',47,1),
-('P0098','2026-07-15 10:30:00',48,2),
-('P0099','2026-07-17 11:45:00',49,3),
-('P0100','2026-07-19 13:20:00',50,1);
-
 
 /*Table structure for table `detailpenjualan` */
 
 DROP TABLE IF EXISTS `detailpenjualan`;
 
 CREATE TABLE `detailpenjualan` (
-  `kodepenjualan` CHAR(5) NOT NULL,
-  `kodebarang` VARCHAR(5) NOT NULL,
-  `jumlahbeli` INT(11) DEFAULT NULL,
-  `hargajual` FLOAT DEFAULT NULL,
+  `kodepenjualan` char(5) NOT NULL,
+  `kodebarang` varchar(5) NOT NULL,
+  `jumlahbeli` int(11) DEFAULT NULL,
+  `hargajual` float DEFAULT NULL,
   PRIMARY KEY (`kodepenjualan`,`kodebarang`),
   KEY `fk_detail_barang` (`kodebarang`),
   CONSTRAINT `fk_detail_barang` FOREIGN KEY (`kodebarang`) REFERENCES `stokbarang` (`kodebarang`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_detail_jual` FOREIGN KEY (`kodepenjualan`) REFERENCES `penjualan` (`kodepenjualan`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `detailpenjualan` */
 
-INSERT  INTO `detailpenjualan`(`kodepenjualan`,`kodebarang`,`jumlahbeli`,`hargajual`) VALUES 
+insert  into `detailpenjualan`(`kodepenjualan`,`kodebarang`,`jumlahbeli`,`hargajual`) values 
 ('P0001','B001',2,85000),
 ('P0001','B002',3,120000),
 ('P0001','B003',4,175000),
@@ -839,30 +535,292 @@ INSERT  INTO `detailpenjualan`(`kodepenjualan`,`kodebarang`,`jumlahbeli`,`hargaj
 ('P0100','B019',4,98000),
 ('P0100','B020',1,185000);
 
+/*Table structure for table `kasir` */
 
+DROP TABLE IF EXISTS `kasir`;
+
+CREATE TABLE `kasir` (
+  `idkasir` int(11) NOT NULL AUTO_INCREMENT,
+  `namakasir` varchar(50) NOT NULL,
+  `telepon` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`idkasir`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `kasir` */
+
+insert  into `kasir`(`idkasir`,`namakasir`,`telepon`) values 
+(1,'Rina Marlina','081234567001'),
+(2,'Doni Kusuma','081234567002'),
+(3,'Ayu Pertiwi','081234567003');
+
+/*Table structure for table `member` */
+
+DROP TABLE IF EXISTS `member`;
+
+CREATE TABLE `member` (
+  `idmember` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(50) NOT NULL,
+  `alamat` varchar(100) DEFAULT NULL,
+  `telepon` varchar(15) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `tanggalmember` date DEFAULT NULL,
+  PRIMARY KEY (`idmember`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `member` */
+
+insert  into `member`(`idmember`,`nama`,`alamat`,`telepon`,`email`,`tanggalmember`) values 
+(1,'Andi Pratama','Jl. Merdeka 12 Bandung','081200000001','andi@mail.com','2025-01-10'),
+(2,'Budi Santoso','Jl. Sudirman 5 Jakarta','081200000002','budi@mail.com','2025-01-15'),
+(3,'Citra Lestari','Jl. Diponegoro 8 Surabaya','081200000003','citra@mail.com','2025-01-20'),
+(4,'Dewi Anggraini','Jl. Ahmad Yani 3 Semarang','081200000004','dewi@mail.com','2025-02-01'),
+(5,'Eko Wibowo','Jl. Gatot Subroto 21 Medan','081200000005','eko@mail.com','2025-02-05'),
+(6,'Fitri Handayani','Jl. Pahlawan 9 Makassar','081200000006','fitri@mail.com','2025-02-10'),
+(7,'Gede Putra','Jl. Sunset Road 4 Bali','081200000007','gede@mail.com','2025-02-14'),
+(8,'Hana Safitri','Jl. Malioboro 17 Jogja','081200000008','hana@mail.com','2025-02-18'),
+(9,'Indra Kurniawan','Jl. Riau 33 Palembang','081200000009','indra@mail.com','2025-03-02'),
+(10,'Joko Susilo','Jl. Veteran 6 Malang','081200000010','joko@mail.com','2025-03-06'),
+(11,'Kurnia Sari','Jl. Merdeka 1 Padang','081200000011','kurnia@mail.com','2025-03-10'),
+(12,'Lukman Hakim','Jl. Sudirman 22 Banjarmasin','081200000012','lukman@mail.com','2025-03-15'),
+(13,'Maya Sari','Jl. Diponegoro 7 Pontianak','081200000013','maya@mail.com','2025-03-20'),
+(14,'Nanda Prasetya','Jl. Ahmad Yani 14 Samarinda','081200000014','nanda@mail.com','2025-04-01'),
+(15,'Olivia Tanuwijaya','Jl. Gatot Subroto 2 Manado','081200000015','olivia@mail.com','2025-04-05'),
+(16,'Puput Rahayu','Jl. Pahlawan 11 Jayapura','081200000016','puput@mail.com','2025-04-10'),
+(17,'Qori Amelia','Jl. Sunset Road 9 Ambon','081200000017','qori@mail.com','2025-04-14'),
+(18,'Rian Firmansyah','Jl. Malioboro 2 Banda Aceh','081200000018','rian@mail.com','2025-04-18'),
+(19,'Sinta Maharani','Jl. Riau 5 Pekanbaru','081200000019','sinta@mail.com','2025-05-02'),
+(20,'Tono Hartono','Jl. Veteran 19 Lampung','081200000020','tono@mail.com','2025-05-06'),
+(21,'Ulfa Ramadhani','Jl. Merdeka 4 Jambi','081200000021','ulfa@mail.com','2025-05-10'),
+(22,'Vino Bastian','Jl. Sudirman 30 Bengkulu','081200000022','vino@mail.com','2025-05-15'),
+(23,'Wulan Suci','Jl. Diponegoro 15 Gorontalo','081200000023','wulan@mail.com','2025-05-20'),
+(24,'Xaverius Edi','Jl. Ahmad Yani 2 Palangka Raya','081200000024','xaverius@mail.com','2025-06-01'),
+(25,'Yuni Astuti','Jl. Gatot Subroto 8 Ternate','081200000025','yuni@mail.com','2025-06-05'),
+(26,'Zaki Maulana','Jl. Pahlawan 23 Sorong','081200000026','zaki@mail.com','2025-06-10'),
+(27,'Arif Setiawan','Jl. Sunset Road 1 Kupang','081200000027','arif@mail.com','2025-06-14'),
+(28,'Bayu Aji','Jl. Malioboro 6 Mataram','081200000028','bayu@mail.com','2025-06-18'),
+(29,'Candra Kirana','Jl. Riau 12 Kendari','081200000029','candra@mail.com','2025-07-02'),
+(30,'Dina Mariana','Jl. Veteran 27 Mamuju','081200000030','dina@mail.com','2025-07-06'),
+(31,'Erwin Syah','Jl. Merdeka 16 Pangkal Pinang','081200000031','erwin@mail.com','2025-07-10'),
+(32,'Fajar Nugroho','Jl. Sudirman 9 Tanjung Pinang','081200000032','fajar@mail.com','2025-07-15'),
+(33,'Gita Puspita','Jl. Diponegoro 21 Manokwari','081200000033','gita@mail.com','2025-07-20'),
+(34,'Hendra Gunawan','Jl. Ahmad Yani 4 Singkawang','081200000034','hendra@mail.com','2025-08-01'),
+(35,'Intan Permata','Jl. Gatot Subroto 18 Bau Bau','081200000035','intan@mail.com','2025-08-05'),
+(36,'Jaya Kusuma','Jl. Pahlawan 1 Sibolga','081200000036','jaya@mail.com','2025-08-10'),
+(37,'Kirana Ayu','Jl. Sunset Road 14 Pare Pare','081200000037','kirana@mail.com','2025-08-14'),
+(38,'Lestari Budhi','Jl. Malioboro 3 Metro','081200000038','lestari@mail.com','2025-08-18'),
+(39,'Malik Ibrahim','Jl. Riau 26 Prabumulih','081200000039','malik@mail.com','2025-09-02'),
+(40,'Nadia Putri','Jl. Veteran 10 Subang','081200000040','nadia@mail.com','2025-09-06'),
+(41,'Oktariansyah','Jl. Merdeka 25 Sukabumi','081200000041','okta@mail.com','2025-09-10'),
+(42,'Prima Wati','Jl. Sudirman 17 Tasikmalaya','081200000042','prima@mail.com','2025-09-15'),
+(43,'Qamal Haikal','Jl. Diponegoro 2 Cirebon','081200000043','qamal@mail.com','2025-09-20'),
+(44,'Ratna Juwita','Jl. Ahmad Yani 11 Tegal','081200000044','ratna@mail.com','2025-10-01'),
+(45,'Surya Darma','Jl. Gatot Subroto 29 Pekalongan','081200000045','surya@mail.com','2025-10-05'),
+(46,'Tari Melati','Jl. Pahlawan 6 Pemalang','081200000046','tari@mail.com','2025-10-10'),
+(47,'Umar Said','Jl. Sunset Road 20 Brebes','081200000047','umar@mail.com','2025-10-14'),
+(48,'Vina Oktaviani','Jl. Malioboro 13 Slawi','081200000048','vina@mail.com','2025-10-18'),
+(49,'Wawan Setiawan','Jl. Riau 8 Purwokerto','081200000049','wawan@mail.com','2025-11-02'),
+(50,'Yusuf Abdillah','Jl. Veteran 24 Banyumas','081200000050','yusuf@mail.com','2025-11-06');
+
+/*Table structure for table `penjualan` */
+
+DROP TABLE IF EXISTS `penjualan`;
+
+CREATE TABLE `penjualan` (
+  `kodepenjualan` char(5) NOT NULL,
+  `tanggalpenjualan` datetime DEFAULT NULL,
+  `idmember` int(11) DEFAULT NULL,
+  `idkasir` int(11) DEFAULT NULL,
+  PRIMARY KEY (`kodepenjualan`),
+  KEY `fk_jual_member` (`idmember`),
+  KEY `fk_jual_kasir` (`idkasir`),
+  CONSTRAINT `fk_jual_kasir` FOREIGN KEY (`idkasir`) REFERENCES `kasir` (`idkasir`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `fk_jual_member` FOREIGN KEY (`idmember`) REFERENCES `member` (`idmember`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `penjualan` */
+
+insert  into `penjualan`(`kodepenjualan`,`tanggalpenjualan`,`idmember`,`idkasir`) values 
+('P0001','2026-01-02 09:15:00',1,1),
+('P0002','2026-01-04 10:30:00',2,2),
+('P0003','2026-01-06 11:45:00',3,3),
+('P0004','2026-01-08 13:20:00',4,1),
+('P0005','2026-01-10 15:10:00',5,2),
+('P0006','2026-01-12 16:40:00',6,3),
+('P0007','2026-01-14 18:05:00',7,1),
+('P0008','2026-01-16 19:30:00',8,2),
+('P0009','2026-01-18 09:15:00',9,3),
+('P0010','2026-01-20 10:30:00',10,1),
+('P0011','2026-01-22 11:45:00',11,2),
+('P0012','2026-01-24 13:20:00',12,3),
+('P0013','2026-01-26 15:10:00',13,1),
+('P0014','2026-01-28 16:40:00',14,2),
+('P0015','2026-01-30 18:05:00',15,3),
+('P0016','2026-02-01 19:30:00',16,1),
+('P0017','2026-02-03 09:15:00',17,2),
+('P0018','2026-02-05 10:30:00',18,3),
+('P0019','2026-02-07 11:45:00',19,1),
+('P0020','2026-02-09 13:20:00',20,2),
+('P0021','2026-02-11 15:10:00',21,3),
+('P0022','2026-02-13 16:40:00',22,1),
+('P0023','2026-02-15 18:05:00',23,2),
+('P0024','2026-02-17 19:30:00',24,3),
+('P0025','2026-02-19 09:15:00',25,1),
+('P0026','2026-02-21 10:30:00',26,2),
+('P0027','2026-02-23 11:45:00',27,3),
+('P0028','2026-02-25 13:20:00',28,1),
+('P0029','2026-02-27 15:10:00',29,2),
+('P0030','2026-03-01 16:40:00',30,3),
+('P0031','2026-03-03 18:05:00',31,1),
+('P0032','2026-03-05 19:30:00',32,2),
+('P0033','2026-03-07 09:15:00',33,3),
+('P0034','2026-03-09 10:30:00',34,1),
+('P0035','2026-03-11 11:45:00',35,2),
+('P0036','2026-03-13 13:20:00',36,3),
+('P0037','2026-03-15 15:10:00',37,1),
+('P0038','2026-03-17 16:40:00',38,2),
+('P0039','2026-03-19 18:05:00',39,3),
+('P0040','2026-03-21 19:30:00',40,1),
+('P0041','2026-03-23 09:15:00',41,2),
+('P0042','2026-03-25 10:30:00',42,3),
+('P0043','2026-03-27 11:45:00',43,1),
+('P0044','2026-03-29 13:20:00',44,2),
+('P0045','2026-03-31 15:10:00',45,3),
+('P0046','2026-04-02 16:40:00',46,1),
+('P0047','2026-04-04 18:05:00',47,2),
+('P0048','2026-04-06 19:30:00',48,3),
+('P0049','2026-04-08 09:15:00',49,1),
+('P0050','2026-04-10 10:30:00',50,2),
+('P0051','2026-04-12 11:45:00',1,3),
+('P0052','2026-04-14 13:20:00',2,1),
+('P0053','2026-04-16 15:10:00',3,2),
+('P0054','2026-04-18 16:40:00',4,3),
+('P0055','2026-04-20 18:05:00',5,1),
+('P0056','2026-04-22 19:30:00',6,2),
+('P0057','2026-04-24 09:15:00',7,3),
+('P0058','2026-04-26 10:30:00',8,1),
+('P0059','2026-04-28 11:45:00',9,2),
+('P0060','2026-04-30 13:20:00',10,3),
+('P0061','2026-05-02 15:10:00',11,1),
+('P0062','2026-05-04 16:40:00',12,2),
+('P0063','2026-05-06 18:05:00',13,3),
+('P0064','2026-05-08 19:30:00',14,1),
+('P0065','2026-05-10 09:15:00',15,2),
+('P0066','2026-05-12 10:30:00',16,3),
+('P0067','2026-05-14 11:45:00',17,1),
+('P0068','2026-05-16 13:20:00',18,2),
+('P0069','2026-05-18 15:10:00',19,3),
+('P0070','2026-05-20 16:40:00',20,1),
+('P0071','2026-05-22 18:05:00',21,2),
+('P0072','2026-05-24 19:30:00',22,3),
+('P0073','2026-05-26 09:15:00',23,1),
+('P0074','2026-05-28 10:30:00',24,2),
+('P0075','2026-05-30 11:45:00',25,3),
+('P0076','2026-06-01 13:20:00',26,1),
+('P0077','2026-06-03 15:10:00',27,2),
+('P0078','2026-06-05 16:40:00',28,3),
+('P0079','2026-06-07 18:05:00',29,1),
+('P0080','2026-06-09 19:30:00',30,2),
+('P0081','2026-06-11 09:15:00',31,3),
+('P0082','2026-06-13 10:30:00',32,1),
+('P0083','2026-06-15 11:45:00',33,2),
+('P0084','2026-06-17 13:20:00',34,3),
+('P0085','2026-06-19 15:10:00',35,1),
+('P0086','2026-06-21 16:40:00',36,2),
+('P0087','2026-06-23 18:05:00',37,3),
+('P0088','2026-06-25 19:30:00',38,1),
+('P0089','2026-06-27 09:15:00',39,2),
+('P0090','2026-06-29 10:30:00',40,3),
+('P0091','2026-07-01 11:45:00',41,1),
+('P0092','2026-07-03 13:20:00',42,2),
+('P0093','2026-07-05 15:10:00',43,3),
+('P0094','2026-07-07 16:40:00',44,1),
+('P0095','2026-07-09 18:05:00',45,2),
+('P0096','2026-07-11 19:30:00',46,3),
+('P0097','2026-07-13 09:15:00',47,1),
+('P0098','2026-07-15 10:30:00',48,2),
+('P0099','2026-07-17 11:45:00',49,3),
+('P0100','2026-07-19 13:20:00',50,1);
+
+/*Table structure for table `photoproduk` */
+
+DROP TABLE IF EXISTS `photoproduk`;
+
+CREATE TABLE `photoproduk` (
+  `kodephoto` int(11) NOT NULL AUTO_INCREMENT,
+  `filephoto` varchar(50) NOT NULL,
+  `iscover` tinyint(1) DEFAULT 0,
+  `kodebarang` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`kodephoto`),
+  KEY `fk_photo_barang` (`kodebarang`),
+  CONSTRAINT `fk_photo_barang` FOREIGN KEY (`kodebarang`) REFERENCES `stokbarang` (`kodebarang`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `photoproduk` */
+
+insert  into `photoproduk`(`kodephoto`,`filephoto`,`iscover`,`kodebarang`) values 
+(1,'kemeja_flanel_01.jpg',1,'B001'),
+(2,'kemeja_flanel_02.jpg',0,'B001'),
+(3,'celana_jeans_01.jpg',1,'B002'),
+(4,'celana_jeans_02.jpg',0,'B002'),
+(5,'sneaker_01.jpg',1,'B003'),
+(6,'sneaker_02.jpg',0,'B003'),
+(7,'kaos_polos_01.jpg',1,'B004'),
+(8,'kaos_polos_02.jpg',0,'B004'),
+(9,'hoodie_01.jpg',1,'B005'),
+(10,'hoodie_02.jpg',0,'B005'),
+(11,'jaket_parasut_01.jpg',1,'B006'),
+(12,'jaket_parasut_02.jpg',0,'B006'),
+(13,'celana_chino_01.jpg',1,'B007'),
+(14,'celana_chino_02.jpg',0,'B007'),
+(15,'topi_baseball_01.jpg',1,'B008'),
+(16,'topi_baseball_02.jpg',0,'B008'),
+(17,'tas_ransel_01.jpg',1,'B009'),
+(18,'tas_ransel_02.jpg',0,'B009'),
+(19,'dompet_kulit_01.jpg',1,'B010'),
+(20,'dompet_kulit_02.jpg',0,'B010'),
+(21,'sabuk_kulit_01.jpg',1,'B011'),
+(22,'sabuk_kulit_02.jpg',0,'B011'),
+(23,'kacamata_hitam_01.jpg',1,'B012'),
+(24,'kacamata_hitam_02.jpg',0,'B012'),
+(25,'jam_tangan_01.jpg',1,'B013'),
+(26,'jam_tangan_02.jpg',0,'B013'),
+(27,'kaos_kaki_01.jpg',1,'B014'),
+(28,'kaos_kaki_02.jpg',0,'B014'),
+(29,'sarung_tangan_01.jpg',1,'B015'),
+(30,'sarung_tangan_02.jpg',0,'B015'),
+(31,'syal_rajut_01.jpg',1,'B016'),
+(32,'syal_rajut_02.jpg',0,'B016'),
+(33,'cardigan_01.jpg',1,'B017'),
+(34,'cardigan_02.jpg',0,'B017'),
+(35,'blazer_01.jpg',1,'B018'),
+(36,'blazer_02.jpg',0,'B018'),
+(37,'rok_plisket_01.jpg',1,'B019'),
+(38,'rok_plisket_02.jpg',0,'B019'),
+(39,'dress_casual_01.jpg',1,'B020'),
+(40,'dress_casual_02.jpg',0,'B020');
 
 /*Table structure for table `reviewproduk` */
 
 DROP TABLE IF EXISTS `reviewproduk`;
 
 CREATE TABLE `reviewproduk` (
-  `kordereview` INT(11) NOT NULL AUTO_INCREMENT,
-  `kodebarang` VARCHAR(5) NOT NULL,
-  `idmember` INT(11) NOT NULL,
-  `rating` TINYINT(4) DEFAULT NULL,
-  `isireview` TEXT DEFAULT NULL,
-  `tanggalreview` DATETIME DEFAULT NULL,
+  `kordereview` int(11) NOT NULL AUTO_INCREMENT,
+  `kodebarang` varchar(5) NOT NULL,
+  `idmember` int(11) NOT NULL,
+  `rating` tinyint(4) DEFAULT NULL,
+  `isireview` text DEFAULT NULL,
+  `tanggalreview` datetime DEFAULT NULL,
   PRIMARY KEY (`kordereview`),
   KEY `fk_review_barang` (`kodebarang`),
   KEY `fk_review_member` (`idmember`),
   CONSTRAINT `fk_review_barang` FOREIGN KEY (`kodebarang`) REFERENCES `stokbarang` (`kodebarang`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_review_member` FOREIGN KEY (`idmember`) REFERENCES `member` (`idmember`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `chk_rating` CHECK (`rating` BETWEEN 1 AND 5)
-) ENGINE=INNODB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `chk_rating` CHECK (`rating` between 1 and 5)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `reviewproduk` */
 
-INSERT  INTO `reviewproduk`(`kordereview`,`kodebarang`,`idmember`,`rating`,`isireview`,`tanggalreview`) VALUES 
+insert  into `reviewproduk`(`kordereview`,`kodebarang`,`idmember`,`rating`,`isireview`,`tanggalreview`) values 
 (1,'B001',1,5,'Bahannya adem, jahitan rapi','2026-01-08 10:00:00'),
 (2,'B001',7,4,'Warna sesuai gambar','2026-01-12 14:20:00'),
 (3,'B002',3,5,'Potongan slim fit pas di badan','2026-01-15 09:30:00'),
@@ -894,7 +852,43 @@ INSERT  INTO `reviewproduk`(`kordereview`,`kodebarang`,`idmember`,`rating`,`isir
 (29,'B018',45,5,'Blazer formal, cutting rapi','2026-06-08 09:10:00'),
 (30,'B019',50,4,'Rok plisket satin jatuh cantik','2026-06-15 16:30:00');
 
+/*Table structure for table `stokbarang` */
 
+DROP TABLE IF EXISTS `stokbarang`;
+
+CREATE TABLE `stokbarang` (
+  `kodebarang` varchar(5) NOT NULL,
+  `namabarang` varchar(50) NOT NULL,
+  `stok` float DEFAULT NULL,
+  `hargabeli` float DEFAULT NULL,
+  `hargajual` float DEFAULT NULL,
+  `deskripsi` text DEFAULT NULL,
+  PRIMARY KEY (`kodebarang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `stokbarang` */
+
+insert  into `stokbarang`(`kodebarang`,`namabarang`,`stok`,`hargabeli`,`hargajual`,`deskripsi`) values 
+('B001','Kemeja Flanel',56,73000,85000,'Kemeja flanel bahan katun'),
+('B002','Celana Jeans',43,112500,120000,'Celana jeans denim'),
+('B003','Sepatu Sneaker',34,154000,175000,'Sepatu sneaker casual'),
+('B004','Kaos Polos Katun',80,52000,65000,'Kaos polos cotton combed 30s'),
+('B005','Hoodie Fleece',25,116000,145000,'Hoodie bahan fleece tebal'),
+('B006','Jaket Parasut',30,104000,130000,'Jaket parasut anti angin'),
+('B007','Celana Chino',38,88000,110000,'Celana chino slim fit'),
+('B008','Topi Baseball',60,36000,45000,'Topi baseball bahan twill'),
+('B009','Tas Ransel',22,128000,160000,'Tas ransel 30L anti air'),
+('B010','Dompet Kulit',40,76000,95000,'Dompet kulit asli manual stitch'),
+('B011','Sabuk Kulit',35,60000,75000,'Sabuk kulit asli head 3 cm'),
+('B012','Kacamata Hitam',28,100000,125000,'Sunglasses UV400 polarized'),
+('B013','Jam Tangan',15,200000,250000,'Jam tangan analog leather strap'),
+('B014','Kaos Kaki Pack',100,20000,25000,'Kaos kaki pack isi 3'),
+('B015','Sarung Tangan',45,44000,55000,'Sarung tangan riding'),
+('B016','Syal Rajut',33,48000,60000,'Syal rajut wool blend'),
+('B017','Cardigan Rajut',18,124000,155000,'Cardigan rajut unisex'),
+('B018','Blazer Formal',12,232000,290000,'Blazer formal slim fit'),
+('B019','Rok Plisket',26,78400,98000,'Rok plisket satin'),
+('B020','Dress Casual',20,148000,185000,'Dress casual katun premium');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
