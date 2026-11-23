@@ -37,54 +37,6 @@ CREATE TABLE photoproduk(
     ON UPDATE CASCADE
 );
 
-INSERT INTO stokbarang(kodebarang,namabarang,stok,hargabeli,hargajual,deskripsi) VALUES
-('B001','Kemeja Flanel',56,73000,85000,'Kemeja flanel bahan katun'),
-('B002','Celana Jeans',43,112500,120000,'Celana jeans denim'),
-('B003','Sepatu Sneaker',34,154000,175000,'Sepatu sneaker casual'),
-('B004','Kaos Polos Katun',80,52000,65000,'Kaos polos cotton combed 30s'),
-('B005','Hoodie Fleece',25,116000,145000,'Hoodie bahan fleece tebal'),
-('B006','Jaket Parasut',30,104000,130000,'Jaket parasut anti angin'),
-('B007','Celana Chino',38,88000,110000,'Celana chino slim fit'),
-('B008','Topi Baseball',60,36000,45000,'Topi baseball bahan twill'),
-('B009','Tas Ransel',22,128000,160000,'Tas ransel 30L anti air'),
-('B010','Dompet Kulit',40,76000,95000,'Dompet kulit asli manual stitch'),
-('B011','Sabuk Kulit',35,60000,75000,'Sabuk kulit asli head 3 cm'),
-('B012','Kacamata Hitam',28,100000,125000,'Sunglasses UV400 polarized'),
-('B013','Jam Tangan',15,200000,250000,'Jam tangan analog leather strap'),
-('B014','Kaos Kaki Pack',100,20000,25000,'Kaos kaki pack isi 3'),
-('B015','Sarung Tangan',45,44000,55000,'Sarung tangan riding'),
-('B016','Syal Rajut',33,48000,60000,'Syal rajut wool blend'),
-('B017','Cardigan Rajut',18,124000,155000,'Cardigan rajut unisex'),
-('B018','Blazer Formal',12,232000,290000,'Blazer formal slim fit'),
-('B019','Rok Plisket',26,78400,98000,'Rok plisket satin'),
-('B020','Dress Casual',20,148000,185000,'Dress casual katun premium');
-
-INSERT INTO photoproduk(kodephoto,filephoto,iscover,kodebarang) VALUES
-(1,'kemeja_flanel_01.jpg',1,'B001'),(2,'kemeja_flanel_02.jpg',0,'B001'),
-(3,'celana_jeans_01.jpg',1,'B002'),(4,'celana_jeans_02.jpg',0,'B002'),
-(5,'sneaker_01.jpg',1,'B003'),(6,'sneaker_02.jpg',0,'B003'),
-(7,'kaos_polos_01.jpg',1,'B004'),(8,'kaos_polos_02.jpg',0,'B004'),
-(9,'hoodie_01.jpg',1,'B005'),(10,'hoodie_02.jpg',0,'B005'),
-(11,'jaket_parasut_01.jpg',1,'B006'),(12,'jaket_parasut_02.jpg',0,'B006'),
-(13,'celana_chino_01.jpg',1,'B007'),(14,'celana_chino_02.jpg',0,'B007'),
-(15,'topi_baseball_01.jpg',1,'B008'),(16,'topi_baseball_02.jpg',0,'B008'),
-(17,'tas_ransel_01.jpg',1,'B009'),(18,'tas_ransel_02.jpg',0,'B009'),
-(19,'dompet_kulit_01.jpg',1,'B010'),(20,'dompet_kulit_02.jpg',0,'B010'),
-(21,'sabuk_kulit_01.jpg',1,'B011'),(22,'sabuk_kulit_02.jpg',0,'B011'),
-(23,'kacamata_hitam_01.jpg',1,'B012'),(24,'kacamata_hitam_02.jpg',0,'B012'),
-(25,'jam_tangan_01.jpg',1,'B013'),(26,'jam_tangan_02.jpg',0,'B013'),
-(27,'kaos_kaki_01.jpg',1,'B014'),(28,'kaos_kaki_02.jpg',0,'B014'),
-(29,'sarung_tangan_01.jpg',1,'B015'),(30,'sarung_tangan_02.jpg',0,'B015'),
-(31,'syal_rajut_01.jpg',1,'B016'),(32,'syal_rajut_02.jpg',0,'B016'),
-(33,'cardigan_01.jpg',1,'B017'),(34,'cardigan_02.jpg',0,'B017'),
-(35,'blazer_01.jpg',1,'B018'),(36,'blazer_02.jpg',0,'B018'),
-(37,'rok_plisket_01.jpg',1,'B019'),(38,'rok_plisket_02.jpg',0,'B019'),
-(39,'dress_casual_01.jpg',1,'B020'),(40,'dress_casual_02.jpg',0,'B020');
-
-
-CREATE DATABASE IF NOT EXISTS PenjualanProduk;
-USE PenjualanProduk;
-
 -- urut DROP dibalik (anak dulu) agar tidak melanggar FK
 DROP TABLE IF EXISTS detailpenjualan, penjualan, reviewproduk,
                      photoproduk, member, kasir, stokbarang;
@@ -172,6 +124,50 @@ CREATE TABLE detailpenjualan(
         REFERENCES stokbarang(kodebarang)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+INSERT INTO stokbarang(kodebarang,namabarang,stok,hargabeli,hargajual,deskripsi) VALUES
+('B001','Kemeja Flanel',56,73000,85000,'Kemeja flanel bahan katun'),
+('B002','Celana Jeans',43,112500,120000,'Celana jeans denim'),
+('B003','Sepatu Sneaker',34,154000,175000,'Sepatu sneaker casual'),
+('B004','Kaos Polos Katun',80,52000,65000,'Kaos polos cotton combed 30s'),
+('B005','Hoodie Fleece',25,116000,145000,'Hoodie bahan fleece tebal'),
+('B006','Jaket Parasut',30,104000,130000,'Jaket parasut anti angin'),
+('B007','Celana Chino',38,88000,110000,'Celana chino slim fit'),
+('B008','Topi Baseball',60,36000,45000,'Topi baseball bahan twill'),
+('B009','Tas Ransel',22,128000,160000,'Tas ransel 30L anti air'),
+('B010','Dompet Kulit',40,76000,95000,'Dompet kulit asli manual stitch'),
+('B011','Sabuk Kulit',35,60000,75000,'Sabuk kulit asli head 3 cm'),
+('B012','Kacamata Hitam',28,100000,125000,'Sunglasses UV400 polarized'),
+('B013','Jam Tangan',15,200000,250000,'Jam tangan analog leather strap'),
+('B014','Kaos Kaki Pack',100,20000,25000,'Kaos kaki pack isi 3'),
+('B015','Sarung Tangan',45,44000,55000,'Sarung tangan riding'),
+('B016','Syal Rajut',33,48000,60000,'Syal rajut wool blend'),
+('B017','Cardigan Rajut',18,124000,155000,'Cardigan rajut unisex'),
+('B018','Blazer Formal',12,232000,290000,'Blazer formal slim fit'),
+('B019','Rok Plisket',26,78400,98000,'Rok plisket satin'),
+('B020','Dress Casual',20,148000,185000,'Dress casual katun premium');
+
+INSERT INTO photoproduk(kodephoto,filephoto,iscover,kodebarang) VALUES
+(1,'kemeja_flanel_01.jpg',1,'B001'),(2,'kemeja_flanel_02.jpg',0,'B001'),
+(3,'celana_jeans_01.jpg',1,'B002'),(4,'celana_jeans_02.jpg',0,'B002'),
+(5,'sneaker_01.jpg',1,'B003'),(6,'sneaker_02.jpg',0,'B003'),
+(7,'kaos_polos_01.jpg',1,'B004'),(8,'kaos_polos_02.jpg',0,'B004'),
+(9,'hoodie_01.jpg',1,'B005'),(10,'hoodie_02.jpg',0,'B005'),
+(11,'jaket_parasut_01.jpg',1,'B006'),(12,'jaket_parasut_02.jpg',0,'B006'),
+(13,'celana_chino_01.jpg',1,'B007'),(14,'celana_chino_02.jpg',0,'B007'),
+(15,'topi_baseball_01.jpg',1,'B008'),(16,'topi_baseball_02.jpg',0,'B008'),
+(17,'tas_ransel_01.jpg',1,'B009'),(18,'tas_ransel_02.jpg',0,'B009'),
+(19,'dompet_kulit_01.jpg',1,'B010'),(20,'dompet_kulit_02.jpg',0,'B010'),
+(21,'sabuk_kulit_01.jpg',1,'B011'),(22,'sabuk_kulit_02.jpg',0,'B011'),
+(23,'kacamata_hitam_01.jpg',1,'B012'),(24,'kacamata_hitam_02.jpg',0,'B012'),
+(25,'jam_tangan_01.jpg',1,'B013'),(26,'jam_tangan_02.jpg',0,'B013'),
+(27,'kaos_kaki_01.jpg',1,'B014'),(28,'kaos_kaki_02.jpg',0,'B014'),
+(29,'sarung_tangan_01.jpg',1,'B015'),(30,'sarung_tangan_02.jpg',0,'B015'),
+(31,'syal_rajut_01.jpg',1,'B016'),(32,'syal_rajut_02.jpg',0,'B016'),
+(33,'cardigan_01.jpg',1,'B017'),(34,'cardigan_02.jpg',0,'B017'),
+(35,'blazer_01.jpg',1,'B018'),(36,'blazer_02.jpg',0,'B018'),
+(37,'rok_plisket_01.jpg',1,'B019'),(38,'rok_plisket_02.jpg',0,'B019'),
+(39,'dress_casual_01.jpg',1,'B020'),(40,'dress_casual_02.jpg',0,'B020');
 
 
 INSERT INTO kasir(idkasir,namakasir,telepon) VALUES
