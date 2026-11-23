@@ -12,6 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - penjualanproduk
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+DROP DATABASE IF EXISTS `penjualanproduk`;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`penjualanproduk` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
 USE `penjualanproduk`;
@@ -21,18 +22,18 @@ USE `penjualanproduk`;
 DROP TABLE IF EXISTS `stokbarang`;
 
 CREATE TABLE `stokbarang` (
-  `kodebarang` varchar(5) NOT NULL,
-  `namabarang` varchar(50) NOT NULL,
-  `stok` float DEFAULT NULL,
-  `hargabeli` float DEFAULT NULL,
-  `hargajual` float DEFAULT NULL,
-  `deskripsi` text DEFAULT NULL,
+  `kodebarang` VARCHAR(5) NOT NULL,
+  `namabarang` VARCHAR(50) NOT NULL,
+  `stok` FLOAT DEFAULT NULL,
+  `hargabeli` FLOAT DEFAULT NULL,
+  `hargajual` FLOAT DEFAULT NULL,
+  `deskripsi` TEXT DEFAULT NULL,
   PRIMARY KEY (`kodebarang`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `stokbarang` */
 
-insert  into `stokbarang`(`kodebarang`,`namabarang`,`stok`,`hargabeli`,`hargajual`,`deskripsi`) values 
+INSERT  INTO `stokbarang`(`kodebarang`,`namabarang`,`stok`,`hargabeli`,`hargajual`,`deskripsi`) VALUES 
 ('B001','Kemeja Flanel',56,73000,85000,'Kemeja flanel bahan katun'),
 ('B002','Celana Jeans',43,112500,120000,'Celana jeans denim'),
 ('B003','Sepatu Sneaker',34,154000,175000,'Sepatu sneaker casual'),
@@ -59,18 +60,18 @@ insert  into `stokbarang`(`kodebarang`,`namabarang`,`stok`,`hargabeli`,`hargajua
 DROP TABLE IF EXISTS `photoproduk`;
 
 CREATE TABLE `photoproduk` (
-  `kodephoto` int(11) NOT NULL AUTO_INCREMENT,
-  `filephoto` varchar(50) NOT NULL,
-  `iscover` tinyint(1) DEFAULT 0,
-  `kodebarang` varchar(5) DEFAULT NULL,
+  `kodephoto` INT(11) NOT NULL AUTO_INCREMENT,
+  `filephoto` VARCHAR(50) NOT NULL,
+  `iscover` TINYINT(1) DEFAULT 0,
+  `kodebarang` VARCHAR(5) DEFAULT NULL,
   PRIMARY KEY (`kodephoto`),
   KEY `fk_photo_barang` (`kodebarang`),
   CONSTRAINT `fk_photo_barang` FOREIGN KEY (`kodebarang`) REFERENCES `stokbarang` (`kodebarang`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `photoproduk` */
 
-insert  into `photoproduk`(`kodephoto`,`filephoto`,`iscover`,`kodebarang`) values 
+INSERT  INTO `photoproduk`(`kodephoto`,`filephoto`,`iscover`,`kodebarang`) VALUES 
 (1,'kemeja_flanel_01.jpg',1,'B001'),
 (2,'kemeja_flanel_02.jpg',0,'B001'),
 (3,'celana_jeans_01.jpg',1,'B002'),
@@ -117,15 +118,15 @@ insert  into `photoproduk`(`kodephoto`,`filephoto`,`iscover`,`kodebarang`) value
 DROP TABLE IF EXISTS `kasir`;
 
 CREATE TABLE `kasir` (
-  `idkasir` int(11) NOT NULL AUTO_INCREMENT,
-  `namakasir` varchar(50) NOT NULL,
-  `telepon` varchar(15) DEFAULT NULL,
+  `idkasir` INT(11) NOT NULL AUTO_INCREMENT,
+  `namakasir` VARCHAR(50) NOT NULL,
+  `telepon` VARCHAR(15) DEFAULT NULL,
   PRIMARY KEY (`idkasir`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `kasir` */
 
-insert  into `kasir`(`idkasir`,`namakasir`,`telepon`) values 
+INSERT  INTO `kasir`(`idkasir`,`namakasir`,`telepon`) VALUES 
 (1,'Rina Marlina','081234567001'),
 (2,'Doni Kusuma','081234567002'),
 (3,'Ayu Pertiwi','081234567003');
@@ -135,18 +136,18 @@ insert  into `kasir`(`idkasir`,`namakasir`,`telepon`) values
 DROP TABLE IF EXISTS `member`;
 
 CREATE TABLE `member` (
-  `idmember` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(50) NOT NULL,
-  `alamat` varchar(100) DEFAULT NULL,
-  `telepon` varchar(15) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `tanggalmember` date DEFAULT NULL,
+  `idmember` INT(11) NOT NULL AUTO_INCREMENT,
+  `nama` VARCHAR(50) NOT NULL,
+  `alamat` VARCHAR(100) DEFAULT NULL,
+  `telepon` VARCHAR(15) DEFAULT NULL,
+  `email` VARCHAR(50) DEFAULT NULL,
+  `tanggalmember` DATE DEFAULT NULL,
   PRIMARY KEY (`idmember`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `member` */
 
-insert  into `member`(`idmember`,`nama`,`alamat`,`telepon`,`email`,`tanggalmember`) values 
+INSERT  INTO `member`(`idmember`,`nama`,`alamat`,`telepon`,`email`,`tanggalmember`) VALUES 
 (1,'Andi Pratama','Jl. Merdeka 12 Bandung','081200000001','andi@mail.com','2025-01-10'),
 (2,'Budi Santoso','Jl. Sudirman 5 Jakarta','081200000002','budi@mail.com','2025-01-15'),
 (3,'Citra Lestari','Jl. Diponegoro 8 Surabaya','081200000003','citra@mail.com','2025-01-20'),
@@ -203,20 +204,20 @@ insert  into `member`(`idmember`,`nama`,`alamat`,`telepon`,`email`,`tanggalmembe
 DROP TABLE IF EXISTS `penjualan`;
 
 CREATE TABLE `penjualan` (
-  `kodepenjualan` char(5) NOT NULL,
-  `tanggalpenjualan` datetime DEFAULT NULL,
-  `idmember` int(11) DEFAULT NULL,
-  `idkasir` int(11) DEFAULT NULL,
+  `kodepenjualan` CHAR(5) NOT NULL,
+  `tanggalpenjualan` DATETIME DEFAULT NULL,
+  `idmember` INT(11) DEFAULT NULL,
+  `idkasir` INT(11) DEFAULT NULL,
   PRIMARY KEY (`kodepenjualan`),
   KEY `fk_jual_member` (`idmember`),
   KEY `fk_jual_kasir` (`idkasir`),
   CONSTRAINT `fk_jual_kasir` FOREIGN KEY (`idkasir`) REFERENCES `kasir` (`idkasir`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_jual_member` FOREIGN KEY (`idmember`) REFERENCES `member` (`idmember`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `penjualan` */
 
-insert  into `penjualan`(`kodepenjualan`,`tanggalpenjualan`,`idmember`,`idkasir`) values 
+INSERT  INTO `penjualan`(`kodepenjualan`,`tanggalpenjualan`,`idmember`,`idkasir`) VALUES 
 ('P0001','2026-01-02 09:15:00',1,1),
 ('P0002','2026-01-04 10:30:00',2,2),
 ('P0003','2026-01-06 11:45:00',3,3),
@@ -324,19 +325,19 @@ insert  into `penjualan`(`kodepenjualan`,`tanggalpenjualan`,`idmember`,`idkasir`
 DROP TABLE IF EXISTS `detailpenjualan`;
 
 CREATE TABLE `detailpenjualan` (
-  `kodepenjualan` char(5) NOT NULL,
-  `kodebarang` varchar(5) NOT NULL,
-  `jumlahbeli` int(11) DEFAULT NULL,
-  `hargajual` float DEFAULT NULL,
+  `kodepenjualan` CHAR(5) NOT NULL,
+  `kodebarang` VARCHAR(5) NOT NULL,
+  `jumlahbeli` INT(11) DEFAULT NULL,
+  `hargajual` FLOAT DEFAULT NULL,
   PRIMARY KEY (`kodepenjualan`,`kodebarang`),
   KEY `fk_detail_barang` (`kodebarang`),
   CONSTRAINT `fk_detail_barang` FOREIGN KEY (`kodebarang`) REFERENCES `stokbarang` (`kodebarang`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_detail_jual` FOREIGN KEY (`kodepenjualan`) REFERENCES `penjualan` (`kodepenjualan`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `detailpenjualan` */
 
-insert  into `detailpenjualan`(`kodepenjualan`,`kodebarang`,`jumlahbeli`,`hargajual`) values 
+INSERT  INTO `detailpenjualan`(`kodepenjualan`,`kodebarang`,`jumlahbeli`,`hargajual`) VALUES 
 ('P0001','B001',2,85000),
 ('P0001','B002',3,120000),
 ('P0001','B003',4,175000),
@@ -845,23 +846,23 @@ insert  into `detailpenjualan`(`kodepenjualan`,`kodebarang`,`jumlahbeli`,`hargaj
 DROP TABLE IF EXISTS `reviewproduk`;
 
 CREATE TABLE `reviewproduk` (
-  `kordereview` int(11) NOT NULL AUTO_INCREMENT,
-  `kodebarang` varchar(5) NOT NULL,
-  `idmember` int(11) NOT NULL,
-  `rating` tinyint(4) DEFAULT NULL,
-  `isireview` text DEFAULT NULL,
-  `tanggalreview` datetime DEFAULT NULL,
+  `kordereview` INT(11) NOT NULL AUTO_INCREMENT,
+  `kodebarang` VARCHAR(5) NOT NULL,
+  `idmember` INT(11) NOT NULL,
+  `rating` TINYINT(4) DEFAULT NULL,
+  `isireview` TEXT DEFAULT NULL,
+  `tanggalreview` DATETIME DEFAULT NULL,
   PRIMARY KEY (`kordereview`),
   KEY `fk_review_barang` (`kodebarang`),
   KEY `fk_review_member` (`idmember`),
   CONSTRAINT `fk_review_barang` FOREIGN KEY (`kodebarang`) REFERENCES `stokbarang` (`kodebarang`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_review_member` FOREIGN KEY (`idmember`) REFERENCES `member` (`idmember`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `chk_rating` CHECK (`rating` between 1 and 5)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `chk_rating` CHECK (`rating` BETWEEN 1 AND 5)
+) ENGINE=INNODB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `reviewproduk` */
 
-insert  into `reviewproduk`(`kordereview`,`kodebarang`,`idmember`,`rating`,`isireview`,`tanggalreview`) values 
+INSERT  INTO `reviewproduk`(`kordereview`,`kodebarang`,`idmember`,`rating`,`isireview`,`tanggalreview`) VALUES 
 (1,'B001',1,5,'Bahannya adem, jahitan rapi','2026-01-08 10:00:00'),
 (2,'B001',7,4,'Warna sesuai gambar','2026-01-12 14:20:00'),
 (3,'B002',3,5,'Potongan slim fit pas di badan','2026-01-15 09:30:00'),
