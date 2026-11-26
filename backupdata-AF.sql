@@ -1,6 +1,7 @@
 /*
 SQLyog Ultimate v12.5.1 (64 bit)
 MySQL - 10.4.27-MariaDB : Database - tokoabc
+Download SQL Script: https://tinyurl.com/basisdata-AF
 *********************************************************************
 */
 
