@@ -837,3 +837,21 @@ insert  into `stokbarang`(`idbarang`,`namabarang`,`hargabarang`,`stok`,`deskrips
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-----
+--  1. Tampilkan idbarang, namabarang dan hargabarang yang berisikan kata 'sepatu'
+--  2. Tampilkan idinvoice, tgl, penerima dan tbayar yang nama penerimanya berasal dari Denpasar
+--  3. Tampilkan idinvoice dan kasir yang melayani pada transaksi penjualan antara pukul 09:00 hingga 13:00
+--  4. Tampilkan transaksi pembelian (idinvoice, tgl, jam, kasir, tbayar dan diskon) yang dilakukan oleh
+--     pembeli dengan inisial Sari
+--  5. Tampilkan transaksi yang di tangani oleh kasir Sandy, Yulia dan Doni diurutkan dari nilai tbayar
+--     terbesar
+--  6. Tampilkan daftar produk selain jenis sepatu dan sandal
+--  7. Tampilkan kustomer yang berasal dari luar Denpasar dan Gianyar
+--  8. Bagian Gudang melakukan Restok barang sepatu untuk stok yang kurang dari 30
+--  9. Tampilkan idbarang, qty untuk produk dengan idbarang dimana digit ke 4 nya '3'
+-- 10. Rekap Penjualan (idinvoice, tgl, jam, tbayar, diskon dan kasir) periode November 2026
+-- 11. Hitung total tbayar dan diskon dari kasir Sandy dan Doni untuk transaksi diluar Tabanan 
+--     dan Klungkung
+
+
