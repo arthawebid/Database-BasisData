@@ -1001,3 +1001,24 @@ insert  into `transjuals`(`kodepenjualan`,`tgl`,`jam`,`kasir`,`diskon`,`kodememb
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+-- Tugas Pertemuan 9 ---
+-- 1. cari data produk yang expire antara pada tahun 2026
+-- 2. transaksi yang terjadi pada pukul 09:00 hingga 12:00
+-- 3. lakukan evaluasi kinerja kasir Wayan dan Ketut
+-- 4. Tampilkan produk kategori Minuman atau frozen & dairy yang harganya antara
+--    7.000 hingga 17.000, khususnya yang mengandung rasa coklat, dengan di urutkan
+--    dari yang paling murah
+-- 5. Pelanggan bertanya tentang produk teh dan kopi, berikan data namaproduk, harga 
+--    serta kodeproduk yang di tanyakan pelanggan
+-- 6. Team Marketing ingin memeriksa daftar photo produk bernomor 0010 hingga 0019
+--    berikan data photo produk berupa: kodephoto, namaproto, iscover
+-- 7. Selain itu team marketing juga mencari photo produk kategori minuman dan snack
+--    berikanlah data berupa namaproduk, kodeproduk, namaphoto dan status iscover
+-- 8. Kepala Gudang akan melakukan restok produk, berikan info data produk yang jumlah stoknya
+--    kurang dari 5000
+-- 9. Permintaan Supervisor Kasir untuk mengetahui transaksi yang dilayani oleh kasir Made 
+--    dan Komang pada shift kerja 09:00 hingga 15:00
+-- 10.Manager Penjualan meminta data total penjualan yang terjadi pada periode 03/10/2026 hingga
+--    05/10/2026
